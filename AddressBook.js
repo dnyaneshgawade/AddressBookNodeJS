@@ -148,7 +148,8 @@ while(addressBookFlag == true)
     console.log("| 5  -> Show Size of AddressBook                |");
     console.log("| 6  -> Search Contact Data from AddressBook    |");
     console.log("| 7  -> View Contact Data from AddressBook      |");
-    console.log("| 8  -> Exit From AddressBook System            |");
+    console.log("| 8  -> Sort Contact Data from AddressBook      |");
+    console.log("| 9  -> Exit From AddressBook System            |");
     console.log("|-----------------------------------------------|");
 
     console.log(">>> Enter Your Choice  >>>");
@@ -177,6 +178,9 @@ while(addressBookFlag == true)
             viewPersonByCityOrState(addressBookArray);
             break;
         case 8:
+            sortContact(addressBookArray);
+            break;
+        case 9:
             addressBookFlag = false;
             console.log(" !! Thank You For Using Address Book System !! ");
             break;
@@ -375,4 +379,25 @@ function viewPersonByCityOrState(addressBookArray)
             break;
     }
 }
-    
+function sortContact(addressBookArray)
+{
+    console.log("\n|-----------------------------------------------|");
+    console.log("|       ***  Sort Option Choice   ***           |");
+    console.log("|-----------------------------------------------|");
+    console.log("| 1  ->   Sort By First Name                    |");
+    console.log("|-----------------------------------------------|");
+
+    const option = Number(prompt(">>> Enter Your Choice  >>>"))
+    switch(option)
+    {
+        case 1:
+                sortByName= addressBookArray.sort((a,b) => 
+                {
+                    if(a._firstName<b._firstName) return -1;
+                    if(a._firstName>b._firstName) return 1;
+                    return 0
+                });
+                console.log(sortByName.toString());
+            break;
+    }
+}   
