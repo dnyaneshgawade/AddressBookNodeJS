@@ -385,19 +385,47 @@ function sortContact(addressBookArray)
     console.log("|       ***  Sort Option Choice   ***           |");
     console.log("|-----------------------------------------------|");
     console.log("| 1  ->   Sort By First Name                    |");
+    console.log("| 2  ->   Sort By City                          |");
+    console.log("| 3  ->   Sort By State                         |");
+    console.log("| 4  ->   Sort By Zip Code                      |");
     console.log("|-----------------------------------------------|");
 
     const option = Number(prompt(">>> Enter Your Choice  >>>"))
     switch(option)
     {
         case 1:
-                sortByName= addressBookArray.sort((a,b) => 
-                {
-                    if(a._firstName<b._firstName) return -1;
-                    if(a._firstName>b._firstName) return 1;
-                    return 0
-                });
-                console.log(sortByName.toString());
+            sortByName= addressBookArray.sort((a,b) => 
+            {
+                if(a._firstName<b._firstName) return -1;
+                if(a._firstName>b._firstName) return 1;
+                return 0
+            });
+            console.log(sortByName.toString());
+            break;
+        case 2:
+            sortByCity = addressBookArray.sort(function(a,b) 
+            {
+                if( a._city < b._city ) return -1;
+                if( a._city > b._city ) return 1;
+                return 0
+            });
+            console.log(sortByCity.toString());
+            break;
+        case 3:
+            sortByState = addressBookArray.sort((a,b) => {
+                if(a._state<b._state) return -1;
+                if(a._state>b._state) return 1;
+                return 0
+            });
+            console.log(sortByState.toString());
+            break;
+        case 4:
+            sortByZip = addressBookArray.sort((a,b) => {
+                if(a._zip<b._zip) return -1;
+                if(a._zip>b._zip) return 1;
+                return 0
+            });
+            console.log(sortByZip.toString());
             break;
     }
 }   
